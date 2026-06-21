@@ -1,0 +1,103 @@
+aid: elsa
+name: ELSA
+review:
+  question: Does ELSA expose a real, documented speech-assessment API, and does it include a realtime/streaming (WebSocket) surface?
+  answer: true
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    ELSA does document a realtime WebSocket streaming surface (wss://) for both
+    scripted and unscripted scoring. An AsyncAPI document was NOT authored in
+    this pass because the per-message payload schemas for the streaming
+    handshake and audio-packet frames are partner-gated and not fully published;
+    modeling them would require fabrication. The WebSocket endpoints are
+    documented here in findings and may be modeled in AsyncAPI on reconciliation
+    once authoritative message schemas are available.
+disambiguation:
+  note: |
+    This catalog covers ELSA Speak / ELSA Corp (elsaspeak.com, elsanow.io) — the
+    AI English pronunciation and speech-assessment platform behind the ELSA Speak
+    consumer app and the ELSA partner API. It is NOT the open-source "Elsa"
+    .NET workflows / workflow-engine library (elsaworkflows.io), which is an
+    unrelated project that shares the name.
+findings:
+  summary: |
+    ELSA exposes a real, documented partner/B2B speech-assessment API. The API
+    is split into a scripted variant (v2 — audio plus an expected script) and an
+    unscripted variant (v1 — open-ended speech). Each variant offers both a
+    single-file batch HTTP endpoint and a realtime WebSocket streaming endpoint.
+    Audio is scored across pronunciation, fluency, intonation, and (for the
+    unscripted variant) grammar and vocabulary, returning sentence, word, and
+    phoneme-level feedback. Access is gated behind an issued API token; pricing
+    is published per 15 seconds of audio across Standard and Premium plans, but
+    production onboarding is partner/sales-assisted, so plan/rate/finops
+    artifacts are marked reconciled:false. Request/response field schemas are
+    largely partner-gated and were not fabricated in the OpenAPI document.
+  availability: Live and documented; partner/B2B, API-token gated. Self-serve per-15s pricing is published; production access is sales-assisted.
+  authentication:
+    scheme: API token in Authorization header using the ELSA scheme
+    format: 'Authorization: ELSA <API_token>'
+    note: An optional master key can generate tokens programmatically. Request access via the ELSA website.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.elsanow.io
+      documented: true
+      note: Single-file (batch) scoring endpoints.
+    - protocol: WebSocket
+      scheme: wss
+      baseURL: wss://api.elsanow.io
+      documented: true
+      note: Realtime, packet-by-packet streaming audio scoring (scripted v2 and unscripted v1).
+  endpointsConfirmed:
+    - POST https://api.elsanow.io/api/v2/score_audio
+    - WSS  wss://api.elsanow.io/api/v2/ws/score_audio
+    - POST https://api.elsanow.io/api/v1/score_audio_plus
+    - WSS  wss://api.elsanow.io/api/v1/ws/score_audio_plus
+  scoringDimensions:
+    - pronunciation (sentence, word, phoneme level)
+    - mispronunciation detection with hints
+    - word stress, reading speed, pausing
+    - fluency
+    - intonation / prosody
+    - grammar (unscripted)
+    - vocabulary (unscripted)
+    - spoken transcript generation (unscripted)
+sources:
+  - url: https://api-external-doc.elsanow.co/
+    type: Documentation
+    note: API overview; scripted vs unscripted split; pronunciation/fluency/intonation/grammar/vocabulary feedback.
+  - url: https://api-external-doc.elsanow.co/category/api
+    type: APIReference
+    note: ELSA API reference section (scripted and unscripted).
+  - url: https://api-external-doc.elsanow.co/websocket-scripted
+    type: Documentation
+    note: WebSocket call to the scripted server API.
+  - url: https://api-external-doc.elsanow.co/websocket-unscripted
+    type: Documentation
+    note: WebSocket call to the unscripted server API.
+  - url: https://api-external-doc.elsanow.co/General-api-info
+    type: Documentation
+    note: Single-file (batch) vs streaming (WebSocket) modes; API token and optional master key auth.
+  - url: https://elsaspeak.com/en/elsa-api/
+    type: Documentation
+    note: Product page; sentence/word/phoneme scores; Standard/Premium per-15s pricing.
+  - url: https://github.com/elsa
+    type: GitHubOrganization
+    note: ELSA Corp GitHub org (elsanow.io); includes Elsa-API-Samples and a speech-scoring sample app.
+  - url: https://voicebot.ai/2022/01/31/elsa-releases-api-for-english-tutor-voice-ai/
+    type: Press
+    note: Coverage of ELSA's release of its speech recognition and feedback engine API.
+actions:
+  apisYmlUpdated: true
+  reason: |
+    Documented three API entries (scripted pronunciation assessment, realtime
+    streaming, unscripted assessment) with real base URLs, a real OpenAPI for
+    the two batch HTTP endpoints, and accurate auth. Plans/rate-limits/finops
+    captured published per-15s pricing but left reconciled:false because
+    production access is partner/sales-assisted and detailed quotas/schemas are
+    not public. No request/response schemas were fabricated.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,84 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: ELSA
+providerId: elsa
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Speech Assessment
+- Pronunciation
+- Speech Recognition
+- Language Learning
+- AI
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of ELSA API spend. ELSA meters speech-assessment usage per 15
+  seconds of audio processed, billed separately for scripted and unscripted
+  scoring and varying by plan (Standard vs Premium, selected per call via the
+  api_plan parameter). Partner onboarding and contract terms are arranged with
+  ELSA, so amounts here are representative and not reconciled.
+notes: >-
+  Rates are representative of figures published on ELSA's API documentation and
+  are subject to change; ELSA partner pricing is sales-assisted. Verify against
+  ELSA during reconciliation.
+sources:
+- https://api-external-doc.elsanow.co/
+- https://elsaspeak.com/en/elsa-api/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: ELSA
+serviceCategory: AI and Machine Learning
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+focusColumns:
+  ServiceName: ELSA Speech Assessment API
+  ServiceCategory: AI and Machine Learning
+  ProviderName: ELSA
+  PublisherName: ELSA
+  InvoiceIssuerName: ELSA
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Usage-Based
+meters:
+- name: scripted_audio_seconds
+  description: Seconds of audio scored by the scripted API, billed per 15 seconds per plan.
+  unit: audio_seconds
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+  - api
+- name: unscripted_audio_seconds
+  description: Seconds of audio scored by the unscripted API, billed per 15 seconds per plan.
+  unit: audio_seconds
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+  - api
+principles:
+- name: Visibility
+  description: Track scripted vs unscripted audio-seconds scored per API key and plan.
+- name: Allocation
+  description: Tag API tokens per app/team; map scoring usage to internal cost centers.
+- name: Optimization
+  description: Trim/segment audio to the plan's maximum duration; pick Standard vs Premium per workload; reserve unscripted scoring (the costlier tier) for cases that need grammar/vocabulary analysis.
+- name: Accountability
+  description: Assign owners per integration; review audio-seconds spend monthly against budget.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

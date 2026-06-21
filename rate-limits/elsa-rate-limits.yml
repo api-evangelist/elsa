@@ -1,0 +1,63 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: ELSA
+providerId: elsa
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Speech Assessment
+- Pronunciation
+- Speech Recognition
+- Language Learning
+- AI
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  The ELSA API is partner/B2B and gated behind an issued API token. ELSA's
+  public documentation describes constraints on maximum audio duration per
+  request (which vary by plan — roughly 20s on Standard and up to 45s scripted
+  / 150s unscripted on Premium) but does not publish account-level request or
+  concurrency rate-limit numbers. Specific throttling thresholds are not
+  reconciled in this artifact and are governed by partner agreements.
+notes: >-
+  Per-account request and concurrency limits are not published; confirm with
+  ELSA during partner onboarding. The clearest documented constraint is the
+  per-request maximum audio length, which is plan-dependent.
+sources:
+- https://api-external-doc.elsanow.co/
+- https://api-external-doc.elsanow.co/faq
+- https://elsaspeak.com/en/elsa-api/
+responseCodes:
+  throttled: 429
+limits:
+- name: Max Audio Duration Per Request (Standard)
+  scope: request
+  metric: audio_seconds
+  limit: ~20s scripted / ~20s unscripted
+  notes: Plan-dependent maximum recording length accepted per scoring call.
+- name: Max Audio Duration Per Request (Premium)
+  scope: request
+  metric: audio_seconds
+  limit: ~45s scripted / ~150s unscripted
+  notes: Plan-dependent maximum recording length accepted per scoring call.
+- name: Requests Per Minute
+  scope: account
+  metric: requests
+  limit: see partner agreement
+  notes: No public per-account RPM published; governed by partner contract.
+- name: Concurrent Streams
+  scope: account
+  metric: connections
+  limit: see partner agreement
+  notes: WebSocket realtime concurrency is not publicly documented.
+policies:
+- name: Token-Gated Access
+  description: Access requires an ELSA-issued API token; quotas are tied to the partner account.
+- name: Backoff Strategy
+  description: Clients should implement retry with backoff and honor any throttling responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

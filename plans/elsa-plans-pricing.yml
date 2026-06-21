@@ -1,0 +1,118 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: ELSA
+providerId: elsa
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Speech Assessment
+- Pronunciation
+- Speech Recognition
+- Language Learning
+- AI
+- Plans
+description: >-
+  The ELSA API is a partner/B2B speech-assessment service. ELSA's developer
+  documentation publishes per-request pricing metered per 15 seconds of audio,
+  split between scripted and unscripted scoring, across STANDARD and PREMIUM
+  plans (the plan is selected per call via the api_plan parameter). Production
+  access and contract terms are arranged with ELSA (request an API key /
+  contact for business), so the representative rates below are not reconciled.
+notes: >-
+  Rates below are representative figures published on the ELSA API documentation
+  and may change; ELSA partner onboarding is sales-assisted. Verify current
+  pricing and plan limits with ELSA during reconciliation.
+sources:
+- https://api-external-doc.elsanow.co/
+- https://elsaspeak.com/en/elsa-api/
+- https://business.elsaspeak.com/elsa-api-01
+plans:
+- id: elsa-standard
+  name: Standard
+  type: usage
+  description: >-
+    Per-15-second metered scoring with shorter maximum audio durations. Plan is
+    selected per request via the api_plan parameter.
+  entries:
+  - label: Scripted Scoring (Standard)
+    name: scripted_standard
+    type: usage
+    metric: audio_seconds
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 15
+    price: $0.008 per 15s
+    userMultiplied: false
+  - label: Unscripted Scoring (Standard)
+    name: unscripted_standard
+    type: usage
+    metric: audio_seconds
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 15
+    price: $0.02 per 15s
+    userMultiplied: false
+  elements:
+  - name: Scripted Pronunciation Assessment
+  - name: Unscripted Speech Assessment
+  - name: Max ~20s scripted / ~20s unscripted audio per request
+- id: elsa-premium
+  name: Premium
+  type: usage
+  description: >-
+    Per-15-second metered scoring with longer maximum audio durations. Plan is
+    selected per request via the api_plan parameter.
+  entries:
+  - label: Scripted Scoring (Premium)
+    name: scripted_premium
+    type: usage
+    metric: audio_seconds
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 15
+    price: $0.01 per 15s
+    userMultiplied: false
+  - label: Unscripted Scoring (Premium)
+    name: unscripted_premium
+    type: usage
+    metric: audio_seconds
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 15
+    price: $0.025 per 15s
+    userMultiplied: false
+  elements:
+  - name: Scripted Pronunciation Assessment
+  - name: Unscripted Speech Assessment
+  - name: Max ~45s scripted / ~150s unscripted audio per request
+- id: elsa-enterprise
+  name: Partner / Enterprise
+  type: enterprise
+  description: >-
+    Negotiated B2B agreements for embedding ELSA speech assessment into
+    third-party apps and platforms. API key issuance, volume terms, and
+    support are arranged with ELSA. Contact ELSA for business.
+  entries:
+  - label: Partner Agreement
+    name: partner
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Custom Volume Pricing
+  - name: API Key Issuance
+  - name: Realtime Streaming Access
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

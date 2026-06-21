@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ELSA Speech Assessment API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "ELSA {{apiToken}}",
+      "in": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scripted",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Score a recorded audio file against an expected script (batch).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.elsanow.io/api/v2/score_audio",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Single-file (batch) scripted scoring. Submit a recorded audio file plus the expected script and an api_plan; returns sentence, word, and phoneme-level pronunciation scores with fluency and intonation. Request/response schemas are partner-gated."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Unscripted",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Score a recorded audio file with no reference script (batch).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.elsanow.io/api/v1/score_audio_plus",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Single-file (batch) unscripted scoring. Submit spontaneous audio and an api_plan; returns a transcript plus pronunciation, prosody, fluency, grammar, and vocabulary analysis. Request/response schemas are partner-gated."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,94 @@
+openapi: 3.0.1
+info:
+  title: ELSA Speech Assessment API
+  description: >-
+    The ELSA API scores recorded or streamed English audio for non-native
+    speakers across pronunciation, fluency, intonation, grammar, and vocabulary,
+    returning sentence, word, and phoneme-level feedback. ELSA splits the API
+    into a scripted variant (v2 — audio plus an expected script) and an
+    unscripted variant (v1 — open-ended speech, no script). Each variant offers
+    a single-file batch HTTP endpoint and a realtime WebSocket streaming
+    endpoint. Access is partner/B2B and gated behind a requested API token;
+    only the batch HTTP endpoints are modeled below. The realtime scoring
+    surface is delivered over WebSocket (wss://api.elsanow.io/api/v2/ws/score_audio
+    for scripted and wss://api.elsanow.io/api/v1/ws/score_audio_plus for
+    unscripted) and is documented at the ELSA developer site but not modeled as
+    HTTP operations here. Request and response field schemas are partner-gated
+    and are not fully published; bodies are described generically and not
+    fabricated.
+    Disambiguation: this is ELSA Speak / ELSA Corp (elsaspeak.com, elsanow.io),
+    not the open-source Elsa .NET workflows library.
+  termsOfService: https://www.elsaspeak.com/en/terms-of-service/
+  contact:
+    name: ELSA API
+    url: https://api-external-doc.elsanow.co/
+  version: '1.0'
+servers:
+  - url: https://api.elsanow.io
+    description: ELSA batch speech-scoring API host (HTTP). Realtime scoring uses the wss:// scheme on the same host.
+security:
+  - ElsaAuth: []
+paths:
+  /api/v2/score_audio:
+    post:
+      operationId: scoreAudioScripted
+      tags:
+        - Scripted
+      summary: Score a recorded audio file against an expected script (batch).
+      description: >-
+        Single-file (batch) scripted scoring. Submit a recorded audio file plus
+        the expected script/sentence and an API plan; returns sentence, word, and
+        phoneme-level pronunciation scores along with mispronunciation hints,
+        word stress, reading speed, pausing, fluency, and intonation. Exact
+        request and response schemas are partner-gated; see the ELSA developer
+        documentation for the authoritative field definitions.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              description: >-
+                Multipart form containing at least an api_plan field and an
+                audio_file field, plus the expected script/sentence. Full field
+                set is documented in the partner API reference.
+      responses:
+        '200':
+          description: Scoring result (scripted). Schema is partner-gated; not modeled here.
+  /api/v1/score_audio_plus:
+    post:
+      operationId: scoreAudioUnscripted
+      tags:
+        - Unscripted
+      summary: Score a recorded audio file with no reference script (batch).
+      description: >-
+        Single-file (batch) unscripted scoring. Submit spontaneous English audio
+        with no reference script and an API plan; returns a spoken transcript plus
+        pronunciation, prosody/intonation, fluency, grammar, and vocabulary
+        analysis with improvement suggestions. Exact request and response schemas
+        are partner-gated; see the ELSA developer documentation for the
+        authoritative field definitions.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              description: >-
+                Multipart form containing at least an api_plan field and an
+                audio_file field. Full field set is documented in the partner
+                API reference.
+      responses:
+        '200':
+          description: Scoring result (unscripted). Schema is partner-gated; not modeled here.
+components:
+  securitySchemes:
+    ElsaAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        API token passed in the Authorization header using the ELSA scheme,
+        e.g. "Authorization: ELSA <API_token>". Tokens are issued to partners;
+        an optional master key can generate tokens programmatically. Request
+        access via the ELSA website.

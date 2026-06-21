@@ -1,0 +1,156 @@
+{
+  "item": [
+    {
+      "id": "a1b2c3d4-0001-4001-8001-000000000001",
+      "name": "Scripted",
+      "description": {
+        "content": "Scripted speech scoring (v2): audio plus an expected script.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a1b2c3d4-0001-4001-8001-000000000002",
+          "name": "Score a recorded audio file against an expected script (batch).",
+          "request": {
+            "name": "Score a recorded audio file against an expected script (batch).",
+            "description": {
+              "content": "Single-file (batch) scripted scoring. Multipart form with api_plan, audio_file, and the expected script. Returns sentence, word, and phoneme-level pronunciation scores with fluency and intonation. Request/response schemas are partner-gated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/score_audio",
+              "path": [
+                "api",
+                "v2",
+                "score_audio"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "ELSA {{apiToken}}"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "api_plan",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "audio_file",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a1b2c3d4-0001-4001-8001-000000000003",
+      "name": "Unscripted",
+      "description": {
+        "content": "Unscripted speech scoring (v1): open-ended audio, no reference script.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a1b2c3d4-0001-4001-8001-000000000004",
+          "name": "Score a recorded audio file with no reference script (batch).",
+          "request": {
+            "name": "Score a recorded audio file with no reference script (batch).",
+            "description": {
+              "content": "Single-file (batch) unscripted scoring. Multipart form with api_plan and audio_file. Returns a transcript plus pronunciation, prosody, fluency, grammar, and vocabulary analysis. Request/response schemas are partner-gated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/score_audio_plus",
+              "path": [
+                "api",
+                "v1",
+                "score_audio_plus"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "ELSA {{apiToken}}"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "api_plan",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "audio_file",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.elsanow.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "ELSA {{apiToken}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a1b2c3d4-0001-4001-8001-000000000000",
+    "name": "ELSA Speech Assessment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Partner/B2B speech-assessment API. Scripted (v2) and unscripted (v1) batch HTTP scoring endpoints; realtime scoring is delivered over WebSocket (wss://api.elsanow.io). Auth uses 'Authorization: ELSA <API_token>'. Disambiguation: ELSA Speak / ELSA Corp (elsaspeak.com, elsanow.io), not the Elsa .NET workflows library.\n\nDocumentation: https://api-external-doc.elsanow.co/",
+      "type": "text/plain"
+    }
+  }
+}
