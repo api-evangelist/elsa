@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/elsa-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ElsaAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: 'API token passed in the Authorization header using the ELSA scheme, e.g. "Authorization:
+    ELSA <API_token>". Tokens are issued to partners; an optional master key can generate tokens
+    programmatically. Request access via the ELSA website.'
+  sources:
+  - openapi/elsa-openapi.yml

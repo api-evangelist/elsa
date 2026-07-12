@@ -1,0 +1,32 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.elsaspeak.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  4 07:02:21 2026 GMT
+  hsts: true
+  hsts_max_age: 2592000
+- host: api-external-doc.elsanow.co
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  6 14:54:00 2026 GMT
+  hsts: false
+- host: api.elsanow.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  7 10:25:13 2026 GMT
+  hsts: null
+domains:
+- domain: elsaspeak.com
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: true
+  dmarc_policy: reject
+- domain: elsanow.co
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false
