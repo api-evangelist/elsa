@@ -83,6 +83,8 @@ apis:
     prosody/intonation, fluency, grammar, and vocabulary analysis with improvement
     suggestions. Batch scoring is a POST to /score_audio_plus.
 common:
+- type: AgenticAccess
+  url: agentic-access/elsa-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/elsa-vulnerability-disclosure.yml
 - type: DomainSecurity
