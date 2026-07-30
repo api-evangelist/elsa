@@ -7,7 +7,20 @@ description: ELSA (English Language Speech Assistant) builds AI speech-recogniti
   Speak consumer app. The ELSA API is a partner/B2B speech-assessment service that scores
   recorded or streamed English audio across pronunciation, fluency, intonation, grammar,
   and vocabulary, returning sentence, word, and phoneme-level feedback.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/elsa.png
 tags:
 - Speech Assessment
 - Pronunciation
@@ -18,70 +31,46 @@ created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.19'
 apis:
-- aid: elsa:elsa-pronunciation-assessment-api
-  name: ELSA Pronunciation Assessment API (Scripted)
-  tags:
-  - Pronunciation
-  - Speech Assessment
-  - Scripted
-  - Phoneme Scoring
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: elsa:elsa-scripted-api
+  name: ELSA Scripted API
+  description: The Scripted API from ELSA — 1 operation(s) for scripted.
   humanURL: https://api-external-doc.elsanow.co/
   baseURL: https://api.elsanow.io/api/v2
-  properties:
-  - url: https://api-external-doc.elsanow.co/
-    type: Documentation
-  - url: https://api-external-doc.elsanow.co/category/api
-    type: APIReference
-  - url: openapi/elsa-openapi.yml
-    type: OpenAPI
-  description: Scripted speech scoring. The caller submits an audio recording together
-    with the expected script/sentence and receives sentence, word, and phoneme-level
-    pronunciation scores, mispronunciation hints, word stress, reading speed, pausing,
-    fluency, and intonation. Batch scoring is a POST to /score_audio; a realtime variant
-    streams audio over a WebSocket to /ws/score_audio.
-- aid: elsa:elsa-realtime-streaming-speech-api
-  name: ELSA Realtime Streaming Speech API
   tags:
-  - Realtime
-  - Streaming
-  - WebSocket
-  - Unscripted
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://api-external-doc.elsanow.co/websocket-scripted
-  baseURL: wss://api.elsanow.io
+  - Scripted
   properties:
-  - url: https://api-external-doc.elsanow.co/websocket-scripted
-    type: Documentation
-  - url: https://api-external-doc.elsanow.co/websocket-unscripted
-    type: Documentation
-  - url: openapi/elsa-openapi.yml
-    type: OpenAPI
-  description: Realtime, packet-by-packet audio scoring over WebSocket. Scripted streaming
-    connects to wss://api.elsanow.io/api/v2/ws/score_audio and unscripted (open-ended)
-    streaming connects to wss://api.elsanow.io/api/v1/ws/score_audio_plus, delivering
-    incremental pronunciation, fluency, intonation, grammar, and vocabulary feedback.
-- aid: elsa:elsa-unscripted-speech-assessment-api
-  name: ELSA Unscripted Speech Assessment API
+  - type: OpenAPI
+    url: openapi/elsa-scripted-api-openapi.yml
+  - type: Documentation
+    url: https://api-external-doc.elsanow.co/
+  - type: APIReference
+    url: https://api-external-doc.elsanow.co/category/api
+  - type: Documentation
+    url: https://api-external-doc.elsanow.co/websocket-scripted
+  - type: Documentation
+    url: https://api-external-doc.elsanow.co/websocket-unscripted
+  - type: Documentation
+    url: https://api-external-doc.elsanow.co/elsa/unscripted
+- aid: elsa:elsa-unscripted-api
+  name: ELSA Unscripted API
+  description: The Unscripted API from ELSA — 1 operation(s) for unscripted.
+  humanURL: https://api-external-doc.elsanow.co/
+  baseURL: https://api.elsanow.io/api/v2
   tags:
   - Unscripted
-  - Fluency
-  - Grammar
-  - Vocabulary
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://api-external-doc.elsanow.co/elsa/unscripted
-  baseURL: https://api.elsanow.io/api/v1
   properties:
-  - url: https://api-external-doc.elsanow.co/elsa/unscripted
-    type: Documentation
-  - url: https://api-external-doc.elsanow.co/category/api
-    type: APIReference
-  - url: openapi/elsa-openapi.yml
-    type: OpenAPI
-  description: Open-ended (unscripted) speech assessment. The caller submits spontaneous
-    English audio with no reference script and receives a spoken transcript plus pronunciation,
-    prosody/intonation, fluency, grammar, and vocabulary analysis with improvement
-    suggestions. Batch scoring is a POST to /score_audio_plus.
+  - type: OpenAPI
+    url: openapi/elsa-unscripted-api-openapi.yml
+  - type: Documentation
+    url: https://api-external-doc.elsanow.co/
+  - type: APIReference
+    url: https://api-external-doc.elsanow.co/category/api
+  - type: Documentation
+    url: https://api-external-doc.elsanow.co/websocket-scripted
+  - type: Documentation
+    url: https://api-external-doc.elsanow.co/websocket-unscripted
+  - type: Documentation
+    url: https://api-external-doc.elsanow.co/elsa/unscripted
 common:
 - type: AgenticAccess
   url: agentic-access/elsa-agentic-access.yml
