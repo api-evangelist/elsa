@@ -1,0 +1,16 @@
+{
+  "provider": "elsa",
+  "sources": [
+    "elsa-scripted-api-openapi.yml",
+    "elsa-unscripted-api-openapi.yml"
+  ],
+  "outputs": [
+    "elsa-scripted-api-openapi.yml",
+    "elsa-unscripted-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
