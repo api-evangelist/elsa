@@ -1,0 +1,256 @@
+{
+  "item": [
+    {
+      "id": "52442864-efa1-4dbf-9a35-8b58529a8f83",
+      "name": "Unscripted",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0fa42f91-b976-4d1a-acf3-e6b550c3f9bf",
+          "name": "Score a recorded audio file with no reference script (batch).",
+          "request": {
+            "name": "Score a recorded audio file with no reference script (batch).",
+            "description": {
+              "content": "Single-file (batch) unscripted scoring. Submit spontaneous English audio with no reference script and an API plan; returns a spoken transcript plus pronunciation, prosody/intonation, fluency, grammar, and vocabulary analysis with improvement suggestions. Exact request and response schemas are partner-gated; see the ELSA developer documentation for the authoritative field definitions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "score_audio_plus"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "0",
+                  "value": "<",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "1",
+                  "value": "o",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "2",
+                  "value": "b",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "3",
+                  "value": "j",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "4",
+                  "value": "e",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "5",
+                  "value": "c",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "6",
+                  "value": "t",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "7",
+                  "value": ">",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8310910d-9b6e-4860-9530-1ddd1a2e12d6",
+              "name": "Scoring result (unscripted). Schema is partner-gated; not modeled here.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "score_audio_plus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "0",
+                      "value": "<",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "1",
+                      "value": "o",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "2",
+                      "value": "b",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "3",
+                      "value": "j",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "4",
+                      "value": "e",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "5",
+                      "value": "c",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "6",
+                      "value": "t",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "7",
+                      "value": ">",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.elsanow.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "719d7364-6b8a-4535-b920-d26bfa2a7172",
+    "name": "ELSA Speech Assessment Scripted Unscripted API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ELSA API scores recorded or streamed English audio for non-native speakers across pronunciation, fluency, intonation, grammar, and vocabulary, returning sentence, word, and phoneme-level feedback. ELSA splits the API into a scripted variant (v2 — audio plus an expected script) and an unscripted variant (v1 — open-ended speech, no script). Each variant offers a single-file batch HTTP endpoint and a realtime WebSocket streaming endpoint. Access is partner/B2B and gated behind a requested API token; only the batch HTTP endpoints are modeled below. The realtime scoring surface is delivered over WebSocket (wss://api.elsanow.io/api/v2/ws/score_audio for scripted and wss://api.elsanow.io/api/v1/ws/score_audio_plus for unscripted) and is documented at the ELSA developer site but not modeled as HTTP operations here. Request and response field schemas are partner-gated and are not fully published; bodies are described generically and not fabricated. Disambiguation: this is ELSA Speak / ELSA Corp (elsaspeak.com, elsanow.io), not the open-source Elsa .NET workflows library.\n\nContact Support:\n Name: ELSA API",
+      "type": "text/plain"
+    }
+  }
+}

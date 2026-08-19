@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ELSA Speech Assessment Scripted API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scripted",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Score a recorded audio file against an expected script (batch).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.elsanow.io/api/v2/score_audio",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Single-file (batch) scripted scoring. Submit a recorded audio file plus the expected script/sentence and an API plan; returns sentence, word, and phoneme-level pronunciation scores along with mispronunciation hints, word stress, reading speed, pausing, fluency, and intonation. Exact request and response schemas are partner-gated; see the ELSA developer documentation for the authoritative field definitions."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

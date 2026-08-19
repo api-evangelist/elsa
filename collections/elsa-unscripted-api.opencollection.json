@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ELSA Speech Assessment Scripted Unscripted API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Unscripted",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Score a recorded audio file with no reference script (batch).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.elsanow.io/api/v1/score_audio_plus",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Single-file (batch) unscripted scoring. Submit spontaneous English audio with no reference script and an API plan; returns a spoken transcript plus pronunciation, prosody/intonation, fluency, grammar, and vocabulary analysis with improvement suggestions. Exact request and response schemas are partner-gated; see the ELSA developer documentation for the authoritative field definitions."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
