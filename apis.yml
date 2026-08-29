@@ -7,6 +7,18 @@ description: ELSA (English Language Speech Assistant) builds AI speech-recogniti
   Speak consumer app. The ELSA API is a partner/B2B speech-assessment service that scores
   recorded or streamed English audio across pronunciation, fluency, intonation, grammar,
   and vocabulary, returning sentence, word, and phoneme-level feedback.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
