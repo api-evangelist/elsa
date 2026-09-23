@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: ELSA Speech Assessment Scripted Unscripted API
-  description: 'The ELSA API scores recorded or streamed English audio for non-native speakers across pronunciation, fluency, intonation, grammar, and vocabulary, returning sentence, word, and phoneme-level feedback. ELSA splits the API into a scripted variant (v2 — audio plus an expected script) and an unscripted variant (v1 — open-ended speech, no script). Each variant offers a single-file batch HTTP endpoint and a realtime WebSocket streaming endpoint. Access is partner/B2B and gated behind a requested API token; only the batch HTTP endpoints are modeled below. The realtime scoring surface is delivered over WebSocket (wss://api.elsanow.io/api/v2/ws/score_audio for scripted and wss://api.elsanow.io/api/v1/ws/score_audio_plus for unscripted) and is documented at the ELSA developer site but not modeled as HTTP operations here. Request and response field schemas are partner-gated and are not fully published; bodies are described generically and not fabricated. Disambiguation: this is ELSA Speak / ELSA Corp (elsaspeak.com, elsanow.io), not the open-source Elsa .NET workflows library.'
+  title: ELSA Speech Assessment Unscripted API
+  description: The ELSA API scores recorded or streamed English audio for non-native speakers across pronunciation, fluency, intonation, grammar, and vocabulary, returning sentence, word, and phoneme-level feedback.
   termsOfService: https://www.elsaspeak.com/en/terms-of-service/
   contact:
     name: ELSA API
@@ -20,7 +20,7 @@ paths:
       operationId: scoreAudioUnscripted
       tags:
       - Unscripted
-      summary: Score a recorded audio file with no reference script (batch).
+      summary: Score a recorded audio file with no reference script (batch)
       description: Single-file (batch) unscripted scoring. Submit spontaneous English audio with no reference script and an API plan; returns a spoken transcript plus pronunciation, prosody/intonation, fluency, grammar, and vocabulary analysis with improvement suggestions. Exact request and response schemas are partner-gated; see the ELSA developer documentation for the authoritative field definitions.
       requestBody:
         required: true
