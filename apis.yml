@@ -50,7 +50,7 @@ tags_raw:
 - Language Learning
 - AI
 created: '2026-06-21'
-modified: '2026-06-21'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: elsa:elsa-scripted-api
@@ -94,6 +94,10 @@ apis:
   - type: Documentation
     url: https://api-external-doc.elsanow.co/elsa/unscripted
 common:
+- url: https://blog.elsaspeak.com/en/
+  type: Blog
+- url: https://blog.elsaspeak.com/en/feed/
+  type: BlogRSS
 - type: AgenticAccess
   url: agentic-access/elsa-agentic-access.yml
 - type: VulnerabilityDisclosure
