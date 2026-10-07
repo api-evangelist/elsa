@@ -94,6 +94,8 @@ apis:
   - type: Documentation
     url: https://api-external-doc.elsanow.co/elsa/unscripted
 common:
+- type: Pricing
+  url: https://elsaspeak.com/en/enterprise/pricing
 - url: https://blog.elsaspeak.com/en/
   type: Blog
 - url: https://blog.elsaspeak.com/en/feed/
