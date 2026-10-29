@@ -1,4 +1,4 @@
-# ELSA (elsa)
+# ELSA
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,102 +66,120 @@
 
 ELSA (English Language Speech Assistant) builds AI speech-recognition and pronunciation-assessment technology for non-native English speakers, powering the ELSA Speak consumer app. The ELSA API is a partner/B2B speech-assessment service that scores recorded or streamed English audio across pronunciation, fluency, intonation, grammar, and vocabulary, returning sentence, word, and phoneme-level feedback.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/elsa/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/elsa/refs/heads/main/apis.yml)
+**Areas:** Speech Assessment · Pronunciation · Speech Recognition · Language Learning · Artificial Intelligence
 
-> Disambiguation: This catalog covers ELSA Speak / ELSA Corp (elsaspeak.com, elsanow.io) — the AI English pronunciation and speech-assessment platform. It is unrelated to "Elsa", the open-source .NET workflows / workflow-engine library.
+## ELSA on APIs.io
 
-## Tags
+Everything profiled for ELSA is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/elsa/](https://apis.io/providers/elsa/)** — or go straight to one of the APIs or properties below.
 
-- Speech Assessment
-- Pronunciation
-- Speech Recognition
-- Language Learning
-- AI
+### APIs (2)
 
-## Timestamps
+- [ELSA Scripted API](https://apis.io/apis/elsa/elsa-scripted-api/) — The Scripted API from ELSA — 1 operation(s) for scripted.
+- [ELSA Unscripted API](https://apis.io/apis/elsa/elsa-unscripted-api/) — The Unscripted API from ELSA — 1 operation(s) for unscripted.
 
-- **Created:** 2026-06-21
-- **Modified:** 2026-06-21
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### ELSA Pronunciation Assessment API (Scripted)
+#### Agentic access (1)
 
-Scripted speech scoring. The caller submits an audio recording together with the expected script/sentence and receives sentence, word, and phoneme-level pronunciation scores, mispronunciation hints, word stress, reading speed, pausing, fluency, and intonation. Batch scoring is a POST to /score_audio; a realtime variant streams audio over a WebSocket to /ws/score_audio.
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- **Human URL:** [https://api-external-doc.elsanow.co/](https://api-external-doc.elsanow.co/)
-- **Base URL:** `https://api.elsanow.io/api/v2`
+- [Elsa Agentic Access](https://apis.io/agentic-access/elsa/elsa-agentic-access/)
 
-#### Tags
+#### Collections (3)
 
-- Pronunciation
-- Speech Assessment
-- Scripted
-- Phoneme Scoring
+Postman and Open Collection request collections.
 
-#### Properties
+- [ELSA Speech Assessment API](https://apis.io/collections/elsa/open-elsa/)
+- [ELSA Speech Assessment Scripted API](https://apis.io/collections/elsa/open-elsa-scripted-api/)
+- [ELSA Speech Assessment Scripted Unscripted API](https://apis.io/collections/elsa/open-elsa-unscripted-api/)
 
-- [Documentation](https://api-external-doc.elsanow.co/)
-- [API Reference](https://api-external-doc.elsanow.co/category/api)
-- [OpenAPI](openapi/elsa-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/elsa.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/elsa.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Security (3)
 
-### ELSA Realtime Streaming Speech API
+Authentication, trust centre, and vulnerability disclosure.
 
-Realtime, packet-by-packet audio scoring over WebSocket. Scripted streaming connects to wss://api.elsanow.io/api/v2/ws/score_audio and unscripted (open-ended) streaming connects to wss://api.elsanow.io/api/v1/ws/score_audio_plus, delivering incremental pronunciation, fluency, intonation, grammar, and vocabulary feedback.
+- [Elsa Authentication](https://apis.io/security/elsa/elsa-authentication/)
+- [Elsa Domain Security](https://apis.io/security/elsa/elsa-domain-security/)
+- [Elsa Vulnerability Disclosure](https://apis.io/security/elsa/elsa-vulnerability-disclosure/)
 
-- **Human URL:** [https://api-external-doc.elsanow.co/websocket-scripted](https://api-external-doc.elsanow.co/websocket-scripted)
-- **Base URL:** `wss://api.elsanow.io`
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- Realtime
-- Streaming
-- WebSocket
-- Unscripted
+- [Elsa Plans Pricing](https://apis.io/plans/elsa/elsa-plans-pricing/)
 
-#### Properties
+#### Rate limits (1)
 
-- [Documentation](https://api-external-doc.elsanow.co/websocket-scripted)
-- [Documentation](https://api-external-doc.elsanow.co/websocket-unscripted)
-- [OpenAPI](openapi/elsa-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/elsa.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/elsa.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published request limits.
 
-### ELSA Unscripted Speech Assessment API
+- [Elsa Rate Limits](https://apis.io/rate-limits/elsa/elsa-rate-limits/)
 
-Open-ended (unscripted) speech assessment. The caller submits spontaneous English audio with no reference script and receives a spoken transcript plus pronunciation, prosody/intonation, fluency, grammar, and vocabulary analysis with improvement suggestions. Batch scoring is a POST to /score_audio_plus.
+#### FinOps (1)
 
-- **Human URL:** [https://api-external-doc.elsanow.co/elsa/unscripted](https://api-external-doc.elsanow.co/elsa/unscripted)
-- **Base URL:** `https://api.elsanow.io/api/v1`
+What the API costs to run, by operation.
 
-#### Tags
+- [Elsa Finops](https://apis.io/finops/elsa/elsa-finops/)
 
-- Unscripted
-- Fluency
-- Grammar
-- Vocabulary
+## Where to find this API
 
-#### Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- [Documentation](https://api-external-doc.elsanow.co/elsa/unscripted)
-- [API Reference](https://api-external-doc.elsanow.co/category/api)
-- [OpenAPI](openapi/elsa-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/elsa.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/elsa.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/elsa)
-- [LinkedIn](https://www.linkedin.com/company/elsacorp)
 - [Website](https://www.elsaspeak.com)
 - [Documentation](https://api-external-doc.elsanow.co/)
-- [Plans](plans/elsa-plans-pricing.yml)
-- [Rate Limits](rate-limits/elsa-rate-limits.yml)
-- [Fin Ops](finops/elsa-finops.yml)
+- [Pricing](https://elsaspeak.com/en/enterprise/pricing)
+- [Blog](https://blog.elsaspeak.com/en/)
+- [GitHub](https://github.com/elsa)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 34.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 47.8 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 42.1 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/elsa/](https://apis.io/providers/elsa/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for ELSA: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/elsa/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
